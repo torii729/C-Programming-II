@@ -1,7 +1,9 @@
 /*
-    PPT 문제 풀이
-
-	실수 배열에 대한 다음 두 함수를 구현하고
+    학번 : 202511204
+    이름 : 강기민
+    프로그램 명 : ch07 PPT 문제 풀이
+    
+    실수 배열에 대한 다음 두 함수를 구현하고
 	printArrayFloat(float R[], int size)
 	copyArrayFloat(float from[], float to[], int size)
 
@@ -9,7 +11,7 @@
 	Int test_printArrayFloat()
 	Int Test_copyArrayFloat()
 
-	작성일자 : 2025.09.15
+    날짜 : 2025.09.15
 */
 
 #include <stdio.h>

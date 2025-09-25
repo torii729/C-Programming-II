@@ -1,21 +1,23 @@
 /*
-    PPT 문제 풀이
+    학번 : 202511204
+    이름 : 강기민
+    프로그램 명 : ch07 PPT 문제 풀이
 
-	배열 범위 중 최소값 찾는 함수 :
-	int findMinInt(int R[], int from, int to) : from부터 to까지 최소값을 갖는 인덱스 하나를 반환
+    배열 범위 중 최소값 찾는 함수 :
+    int findMinInt(int R[], int from, int to) : from부터 to까지 최소값을 갖는 인덱스 하나를 반환
 
-	배열의 두 원소를 교환하기 :
-	void swapInt(int R[], int aindex, int bindex)
+    배열의 두 원소를 교환하기 :
+    void swapInt(int R[], int aindex, int bindex)
 
-	두 함수를 구현하고, 이를 이용한 선택정렬 함수를 구현
-	Int selectionSortInt(int R[], int length) : 정상 0, 실패 0이 아닌 수
+    두 함수를 구현하고, 이를 이용한 선택정렬 함수를 구현
+    Int selectionSortInt(int R[], int length) : 정상 0, 실패 0이 아닌 수
 
-	테스트 코드
-	잘 동작하는지 시험하는 함수를 작성하고 main에서 호출
-	Int test_selectionSortInt(void) : 성공 0, 실패 0이 아닌 수
-	임의의 정수 배열을 선언한 후 정렬하고, 원래 배열과 정렬된 결과를 출력
-	
-	작성일자 : 2025.09.15
+    테스트 코드
+    잘 동작하는지 시험하는 함수를 작성하고 main에서 호출
+    Int test_selectionSortInt(void) : 성공 0, 실패 0이 아닌 수
+    임의의 정수 배열을 선언한 후 정렬하고, 원래 배열과 정렬된 결과를 출력
+
+    날짜 : 2025.09.15
 */
 
 #include <stdio.h>

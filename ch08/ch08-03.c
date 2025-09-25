@@ -1,10 +1,14 @@
 /*
-	PPT 문제 풀이
+    학번 : 202511204
+    이름 : 강기민
+    프로그램 명 : ch08 PPT 문제 풀이
+    
+    예제 8-13 의 데이터 타입들을 int 에서 double 로 변형해서 코딩하고 테스트하기
+    void * swap(double * a, double * b)
+    단, 포인터가 NULL인지 테스트할 것
+    반환 값: a 또는 b 포인터가 NULL이면 NULL, 그렇지 않으면 a 값을 반환
 
-	예제 8-13 의 데이터 타입들을 int 에서 double 로 변형해서 코딩하고 테스트하기
-	void * swap(double * a, double * b)
-	단, 포인터가 NULL인지 테스트할 것
-	반환 값: a 또는 b 포인터가 NULL이면 NULL, 그렇지 않으면 a 값을 반환
+    날짜 : 2025.09.18
 */
 
 #include <stdio.h>

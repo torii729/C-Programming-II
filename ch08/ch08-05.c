@@ -1,30 +1,35 @@
 /*
-	PPT 문제 풀이
+    학번 : 202511204
+    이름 : 강기민
+    프로그램 명 : ch08 PPT 문제 풀이
 
-	void printArrayInt(const int* arr, int size)
-		포인터 ++ 연산자를 이용하여 구현하고 테스트
-		단 포인터가 NULL인지 확인할 것
-	void printArrayInt2(const int arr[], int size)
-		배열 인덱스를 이용하여 구현하고 테스트
-	int copyArrayFloat(const float* from, float* to, int size)
-		포인터 ++연산자를 이용하여 구현하고 테스트
-		반환 : size
-		단 포인터들이 NULL인지 확인할 것
+    void printArrayInt(const int* arr, int size)
+        포인터 ++ 연산자를 이용하여 구현하고 테스트
+        단 포인터가 NULL인지 확인할 것
+    void printArrayInt2(const int arr[], int size)
+        배열 인덱스를 이용하여 구현하고 테스트
+    int copyArrayFloat(const float* from, float* to, int size)
+        포인터 ++연산자를 이용하여 구현하고 테스트
+        반환 : size
+        단 포인터들이 NULL인지 확인할 것
+
+    날짜 : 2025.09.22
 */
 
+
 /*
-    void printArrayInt(const int* arr, int size)
-       - 포인터 ++ 연산자로 순회
-       - arr가 NULL이거나 size <= 0이면 안내 출력 후 반환한다.
+    void printArrayInt(const int* arr, int size) :
+       포인터 ++ 연산자로 순회
+       arr가 NULL이거나 size <= 0이면 안내 출력 후 반환한다.
 
-    void printArrayInt2(const int arr[], int size)
-       - 배열 인덱스로 순회
-       - arr가 NULL이거나 size <= 0이면 안내 출력 후 반환한다.
+    void printArrayInt2(const int arr[], int size) :
+       배열 인덱스로 순회
+       arr가 NULL이거나 size <= 0이면 안내 출력 후 반환한다.
 
-    int copyArrayFloat(const float* from, float* to, int size)
-       - 포인터 ++ 연산자로 복사한다.
-       - 포인터/size 검증
-       - 성공 시 size 반환, 실패 시 0 반환한다.
+    int copyArrayFloat(const float* from, float* to, int size) :
+       포인터 ++ 연산자로 복사한다.
+       포인터/size 검증
+       성공 시 size 반환, 실패 시 0 반환한다.
 */
 
 #include <stdio.h> // 표준 입출력 사용

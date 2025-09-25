@@ -1,19 +1,22 @@
 /*
-    PPT 문제 풀이
+    학번 : 202511204
+    이름 : 강기민
+    프로그램 명 : ch07 PPT 문제 풀이
 
-	구조체 타입을 하나 임의로 선언 : 예) 연락처(이름, 전화번호, 메모)
-	typedef struct _contact { char name[64]; char phone1[24] } Contact;
+    구조체 타입을 하나 임의로 선언 : 예) 연락처(이름, 전화번호, 메모)
+    typedef struct _contact { char name[64]; char phone1[24] } Contact;
 
-	구조체 배열에 대한 다음 두 함수를 구현하고
-	void printArrayContact(Contact R[], int size)
-	void copyArrayContact(Contact from[], Contact to[], int size)
+    구조체 배열에 대한 다음 두 함수를 구현하고
+    void printArrayContact(Contact R[], int size)
+    void copyArrayContact(Contact from[], Contact to[], int size)
 
-	Test 함수를 작성하고 main 에서 호출하여 실행해 보시오
-	Int test_printArrayContact()
-	Int Test_copyArrayContact()
+    Test 함수를 작성하고 main 에서 호출하여 실행해 보시오
+    Int test_printArrayContact()
+    Int Test_copyArrayContact()
 
-	작성일자 : 2025.09.15
+    날짜 : 2025.09.15
 */
+
 
 #include <stdio.h>
 #include <string.h>
