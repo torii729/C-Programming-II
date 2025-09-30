@@ -5,6 +5,22 @@
 	날짜 : 2025.09.29
 */
 
+/*
+    관련 개념 :
+    const char*는 문자열 내용을 변경하지 못하게 보호하는 역할을 한다.
+    isspace 함수는 공백, 탭, 개행 등 공백 문자를 판별한다.
+    포인터를 한 칸씩 이동시키며 문자열 전체를 순회할 수 있다.
+
+    메모리 동작 :
+    str 배열은 스택 영역에 고정 크기로 할당된다.
+    count_space 함수의 매개변수 s는 str 배열의 시작 주소를 받아 문자열을 읽는다.
+    const 제약으로 인해 함수 내부에서는 문자열 내용을 수정할 수 없다.
+
+    이 방식을 쓰는 이유 :
+    문자열을 읽기만 하는 함수에서 const를 사용하면 안정성이 높아진다.
+    isspace와 포인터 연산을 이용하면 간결하게 문자열을 탐색할 수 있다.
+*/
+
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h>
@@ -15,29 +31,22 @@ int count_space(const char* s); // 공백 문자 개수를 세는 함수 원형 선언
 int main(void)
 {
     char str[64] = "this program\ttests const pointer to string\n";
-    // 문자열 (탭, 개행 포함)
 
     puts(str); // 문자열 출력
-    printf("공백 문자의 개수: %d\n", count_space(str));
-    // count_space 함수 호출 → 공백 문자 개수 출력
+    printf("공백 문자의 개수: %d\n", count_space(str)); // 공백 문자 개수 출력
 
     return 0;
 }
 
-int count_space(const char* s) // s는 입력 문자열 (const 포인터 → 값 변경 불가)
+int count_space(const char* s)
 {
     int count = 0; // 공백 개수 저장용 변수
 
     while (s[0] != '\0') { // 문자열 끝('\0')까지 반복
-        if (isspace(s[0])) // 현재 문자가 공백/탭/개행인지 검사
+        if (isspace(s[0])) // 현재 문자가 공백, 탭, 개행인지 검사
             count++; // 공백 문자면 count 증가
         s++; // 다음 문자로 이동
     }
-
-    /*
-        s[0] = 'A';는 const 포인터이므로 문자열 수정 불가 (컴파일 에러)
-        strcpy(s, "xyz");는 매개변수 타입이 const char*라서 strcpy 불가능
-    */
 
     return count; // 공백 문자 개수 반환
 }
