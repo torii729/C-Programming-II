@@ -31,6 +31,21 @@
     <ClCompile Include="ch07-04.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="ch07-05.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="ch07-06.c" />
+    <ClCompile Include="ch07-07.c" />
+    <ClCompile Include="ch07-08.c" />
+    <ClCompile Include="ch07-09.c" />
+    <ClCompile Include="ch07-10.c" />
+    <ClCompile Include="ch07-11.c" />
+    <ClCompile Include="ch07-12.c" />
+    <ClCompile Include="ch07-13.c" />
+    <ClCompile Include="ch07-14.c" />
+    <ClCompile Include="ch07-15.c" />
+    <ClCompile Include="ch07-16.c" />
+    <ClCompile Include="ch07-17.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Documents\CP2\WEEKLAB\WEEK02\struct.h" />
