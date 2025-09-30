@@ -9,6 +9,9 @@
 #include <string.h>
 #include <ctype.h>
 
+// isspace() : 매개변수로 들어온 값이 공백인지 확인하고, 공백이면 0이 아닌 수를 반환, 그렇지 않으면 0을 반환
+// \0, \n, \t, \v, \f, \r를 공백이라 판단함
+
 // 문자열 앞쪽 공백 제거 (Left Trim)
 char* ltrim(char* str) 
 {
