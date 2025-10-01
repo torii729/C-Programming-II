@@ -15,6 +15,11 @@
 
 void* swap(double* a, double* b);
 
+// 기능명: main. swap 함수 호출
+// 내용: 두 실수 a, b를 선언하고 swap 함수를 호출하여 값이 교환됨을 확인한다.
+// 입력: 없음
+// 출력: swap 전과 후의 a, b 값
+// 오류: 없음
 int main(void)
 {
     double x = 3.3, y = 7.7;
@@ -34,6 +39,11 @@ int main(void)
     return 0;
 }
 
+// 기능명: swap. 두 실수 값 교환
+// 내용: 두 실수의 주소를 받아(포인터) 값을 서로 교환한다.
+// 입력: 없음
+// 출력: 없음 (원본 값이 직접 변경됨)
+// 오류: 전달된 포인터가 NULL일 경우 동작 보장되지 않음
 void* swap(double* a, double* b)
 {
     if (a == NULL || b == NULL)  // NULL 포인터 체크
