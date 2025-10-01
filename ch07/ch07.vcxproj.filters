@@ -66,6 +66,12 @@
     <ClCompile Include="ch07-17.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="ch07-18.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ch07-19.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Documents\CP2\WEEKLAB\WEEK02\struct.h">

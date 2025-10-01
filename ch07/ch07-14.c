@@ -1,6 +1,59 @@
 /*
     학번 : 202511204
     이름 : 강기민
-    프로그램 명 : ch07 PPT 예제 7-
+    프로그램 명 : ch07 PPT 예제 7-10 : 탐색의 성공, 실패를 확인하려는 경우
     날짜 : 2025.09.15
 */
+
+/*
+    관련 개념:
+    선형 탐색을 이용해 배열에서 특정 값을 찾는다.
+    탐색 성공 여부를 found 플래그 변수로 저장하여, 찾았을 경우와 못 찾았을 경우를 구분한다.
+    break 문을 사용해 값을 찾으면 반복문을 즉시 종료할 수 있다.
+
+    메모리 동작:
+    data 배열은 스택에 연속적으로 저장된다.
+    key는 사용자 입력값이 저장되는 변수다.
+    found는 탐색 결과를 표시하며 1이면 성공, 0이면 실패를 의미한다.
+
+    이 방식을 쓰는 이유:
+    불필요한 반복을 줄이기 위해 break 문으로 효율성을 높일 수 있다.
+*/
+
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main(void)
+{
+    int data[] = { 78, 34, 52, 15, 63, 15, 25 }; // 탐색 대상 배열
+    int size;
+    int key, i;
+    int found; // 탐색 성공 여부 (1 = 성공, 0 = 실패)
+
+    size = sizeof(data) / sizeof(data[0]); // 배열 크기 계산
+
+    printf("arr = ");
+    for (i = 0; i < size; i++)
+        printf("%d ", data[i]); // 배열 출력
+    printf("\n");
+
+    printf("찾을 값(key)? ");
+    scanf("%d", &key); // 찾을 값 입력
+
+    found = 0; // 초기값: 실패로 가정
+    for (i = 0; i < size; i++) {
+        if (data[i] == key) { // 원소가 key와 같으면
+            found = 1; // 성공 표시를 위해 found에 1을 대입한다.
+            break; // 더 이상 탐색하지 않는다는 의미로 break
+        }
+    }
+
+    if (found == 1) // 탐색 성공
+        printf("찾은 원소의 인덱스: %d\n", i);
+    else // 탐색 실패
+        printf("탐색 실패\n");
+
+    return 0;
+}
+
+
