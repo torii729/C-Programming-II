@@ -40,12 +40,12 @@ void printArrayInt2(const int arr[], int size); // 인덱스로 int 배열 출력한다.
 int  copyArrayFloat(const float* from, float* to, int size); // 포인터 ++로 float 배열 복사함. 성공하면 size 반환한다.
 
 // 테스트 함수 선언부
-void test_all(void); // 전체 동작 한 번에 검증할 것임
+void test_all(void); // 전체 동작 한 번에 검증할 것
 
-int main(void) // 메인은 호출만 함
+int main(void)
 {
     test_all(); // 테스트 실행한다.
-    return 0; // 정상 종료함
+    return 0; // 정상 종료
 }
 
 // 포인터 ++로 int 배열 출력하는 함수
@@ -81,7 +81,7 @@ void printArrayInt2(const int arr[], int size)
     printf("\n"); // 줄바꿈 한다.
 }
 
-// 포인터 ++로 float 배열 복사함
+// 포인터 ++로 float 배열 복사하는 함수
 int copyArrayFloat(const float* from, float* to, int size)
 {
     if (from == NULL || to == NULL || size <= 0)
