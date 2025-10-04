@@ -14,12 +14,22 @@ int test_print_array();
 void print_array_double(double arr[], int sz);
 void printArrayDouble(double* arr, int sz);
 
+// 기능명: main. 프로그램 시작점
+// 내용: 메뉴를 호출하여 원하는 기능을 실행한다.
+// 입력: 없음
+// 출력: 각 기능 수행 결과를 콘솔에 출력한다.
+// 오류: 없음
 int main()
 {
     menu();
     return 0;
 }
 
+// 기능명: menu. 기능 선택 메뉴
+// 내용: 스왑, 배열 출력, 종료 중 선택해 해당 함수를 실행한다.
+// 입력: 없음
+// 출력: 선택된 기능 결과를 콘솔에 출력한다.
+// 오류: 잘못된 번호 입력 시 재입력 요청
 void menu()
 {
     while (1)
@@ -49,6 +59,11 @@ void menu()
     }
 }
 
+// 기능명: test_swap_double. 실수형 변수 스왑 테스트
+// 내용: swapDouble 함수를 이용해 두 변수의 값을 바꾸고 결과를 출력한다.
+// 입력: 없음
+// 출력: 스왑 결과를 콘솔에 출력한다.
+// 오류: NULL 포인터 입력 시 예외 처리 메시지 출력
 void test_swap_double()
 {
     double x = 3.3, y = 6.6;
@@ -76,16 +91,18 @@ void test_swap_double()
     }
 }
 
-// 변수 값 서로 바꾸는 함수(스왑)
-void* swapDouble(double* a, double* b) // 반환 타입이 포인터인 함수 선언
+// 기능명: swapDouble. 두 실수형 변수의 값 교환
+// 내용: 두 실수형 변수의 값을 포인터로 받아 서로 교환한다.
+// 입력: double* a, double* b (두 변수의 주소)
+// 출력: 없음 (포인터 a 반환)
+// 오류: NULL 입력 시 NULL 반환
+void* swapDouble(double* a, double* b)
 {
-    // 입력 값이 정상인지 체크한다(NULL이 아니어야 한다)
     if (a == NULL || b == NULL)
     {
-        return NULL; // NULL 포인터를 방지한다(아무 것도 없는 걸 가리키면 그것은 유효한 메모리 주소가 아니다)
+        return NULL;
     }
 
-    // 스왑한다. 임의의 변수 temp에 a가 가리키는 값을 넣어 저장하는 식. 이때 a, b와 타입이 같아야 한다.
     double temp = *a;
     *a = *b;
     *b = temp;
@@ -93,7 +110,11 @@ void* swapDouble(double* a, double* b) // 반환 타입이 포인터인 함수 선언
     return a;
 }
 
-// 배열을 출력하는 함수, 문제 있으면 return 1, 문제 없으면 return 0.
+// 기능명: test_print_array. 배열 출력 테스트
+// 내용: 실수 배열을 생성하고 두 가지 방식(배열, 포인터)으로 출력한다.
+// 입력: 없음
+// 출력: 배열의 원소를 콘솔에 출력한다.
+// 오류: 없음
 int test_print_array()
 {
     double arr[] = { 1.0, 2.0, 3.0, 4.0, 5.0 };
@@ -106,11 +127,11 @@ int test_print_array()
 }
 
 /*
-    기능 : 1차원 실수 배열을 입력 받아서 콘솔에 출력한다.
-    함수명 : print_array_double(배열 사용), printArrayDouble(포인터 사용)
-    입력 : double 타입 1차원 배열 주소
-    출력 : 터미널에 배열의 내용을 예쁘게 출력한다.
-    반환 : 없음
+    기능명: print_array_double. 배열을 사용한 출력
+    내용: 1차원 실수 배열을 전달받아 각 원소를 순서대로 출력한다.
+    입력: double arr[] (배열 이름), int sz (배열 크기)
+    출력: 배열의 값을 콘솔에 출력한다.
+    오류: 없음
 */
 void print_array_double(double arr[], int sz)
 {
@@ -122,7 +143,14 @@ void print_array_double(double arr[], int sz)
     printf("\n");
 }
 
-void printArrayDouble(double *arr, int sz)
+/*
+    기능명: printArrayDouble. 포인터를 사용한 출력
+    내용: 포인터를 이용하여 배열의 원소를 순서대로 출력한다.
+    입력: double* arr (배열 첫 원소의 주소), int sz (배열 크기)
+    출력: 배열의 값을 콘솔에 출력한다.
+    오류: 없음
+*/
+void printArrayDouble(double* arr, int sz)
 {
     printf("포인터를 사용 : ");
     for (int i = 0; i < sz; i++, arr++)
@@ -131,4 +159,3 @@ void printArrayDouble(double *arr, int sz)
     }
     printf("\n\n");
 }
-

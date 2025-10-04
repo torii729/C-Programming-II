@@ -11,15 +11,24 @@
 void test(void);
 void get_min_max(int a[], int n, int* pmax, int* pmin);
 
+// 기능명: main. 프로그램 시작점
+// 내용: test 함수를 호출하여 배열의 최댓값과 최솟값을 출력한다.
+// 입력: 없음
+// 출력: 배열과 최댓값, 최솟값을 콘솔에 출력한다.
+// 오류: 없음
 int main(void)
 {
     test();
     return 0;
 }
 
-// 배열에서 가장 큰 값과 가장 작은 값을 찾아서 바깥 변수에 넣어준다
-// pmax, pmin은 "결과를 적어줄 주소"이다.
-
+/*
+    기능명: get_min_max. 배열 내 최댓값 및 최솟값 계산
+    내용: 정수형 배열을 순회하며 최댓값과 최솟값을 찾아 외부 변수(pmax, pmin)에 저장한다.
+    입력: int a[] (배열), int n (크기), int* pmax (최댓값 저장 주소), int* pmin (최솟값 저장 주소)
+    출력: 없음 (결과는 포인터를 통해 반환됨)
+    오류: 배열 크기가 0 이하인 경우 함수 즉시 종료
+*/
 void get_min_max(int a[], int n, int* pmax, int* pmin)
 {
     int i = 0;
@@ -29,11 +38,9 @@ void get_min_max(int a[], int n, int* pmax, int* pmin)
         return;
     }
 
-    // 시작값은 첫 칸으로 잡음
     *pmax = a[0];
     *pmin = a[0];
 
-    // 1번 칸부터 끝까지 보면서 더 크면 큰 값 교체, 더 작으면 작은 값 교체
     for (i = 1; i < n; i++)
     {
         if (a[i] > *pmax)
@@ -47,7 +54,13 @@ void get_min_max(int a[], int n, int* pmax, int* pmin)
     }
 }
 
-// 테스트 실행
+/*
+    기능명: test. get_min_max 함수 테스트
+    내용: 크기가 10인 정수 배열을 초기화하고, get_min_max 함수를 호출하여 최댓값과 최솟값을 출력한다.
+    입력: 없음
+    출력: 배열 전체, 최댓값, 최솟값을 콘솔에 출력한다.
+    오류: 없음
+*/
 void test(void)
 {
     int a[10] = { 23, 45, 62, 12, 99, 83, 23, 50, 72, 37 };
@@ -69,7 +82,6 @@ void test(void)
 
     get_min_max(a, n, &maxv, &minv);
 
-    // &maxv는 "maxv를 보관하는 곳의 주소"이기 때문에 함수가 거기에 값을 적어주는...
     printf("최댓값: %d\n", maxv);
     printf("최솟값: %d\n", minv);
 }

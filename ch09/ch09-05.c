@@ -11,21 +11,28 @@
 
 #define SIZE 32
 
+/*
+	기능명: main. 프로그램 시작점
+	내용: 문자열 두 개를 입력받아 strcpy 함수를 이용해 서로 교환하는 프로그램.
+	입력: 문자열 2개 (공백으로 구분)
+	출력: 교환 전과 후의 문자열을 콘솔에 출력.
+	오류: 없음
+*/
 int main(void)
 {
-    char str1[SIZE] = ""; // 문자열 1, 널문자로 초기화
-    char str2[SIZE] = ""; // 문자열 2, 널문자로 초기화
-    char temp[SIZE]; // 문자열 교환할 때 임시 저장 공간
+	char str1[SIZE] = ""; // 문자열 1, 널문자로 초기화
+	char str2[SIZE] = ""; // 문자열 2, 널문자로 초기화
+	char temp[SIZE]; // 문자열 교환 시 임시 저장 공간
 
-    printf("2개의 문자열? "); // 문자열 두 개 입력하라고 안내
-    scanf("%s %s", str1, str2); // 공백으로 구분해서 문자열 두 개 입력받음
-    printf("str1 = %s, str2 = %s\n", str1, str2);  // 입력된 문자열 확인 출력
+	printf("2개의 문자열? "); // 문자열 두 개 입력 요청
+	scanf("%s %s", str1, str2); // 공백 기준으로 문자열 두 개 입력받음
+	printf("str1 = %s, str2 = %s\n", str1, str2); // 입력 확인 출력
 
-    strcpy(temp, str1); // str1을 temp에 복사
-    strcpy(str1, str2); // str2를 str1에 복사
-    strcpy(str2, temp); // temp를 str2에 복사 (결국 str1, str2 swap됨)
+	strcpy(temp, str1); // str1 → temp
+	strcpy(str1, str2); // str2 → str1
+	strcpy(str2, temp); // temp → str2 (결과적으로 교환됨)
 
-    printf("str1 = %s, str2 = %s\n", str1, str2); // 교환된 문자열 출력
+	printf("str1 = %s, str2 = %s\n", str1, str2); // 교환 결과 출력
 
-    return 0; // 프로그램 종료
+	return 0; // 프로그램 종료
 }

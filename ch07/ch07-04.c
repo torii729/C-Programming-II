@@ -27,13 +27,21 @@ int qsortfloat(const void* a, const void* b);
 int selectionSortInt(void* base, int n, int sz, int (*cmp)(void*, void*));
 int contactUp(const void* a, const void* b);
 
-// 메인
+// 기능명: main. 테스트 실행
+// 내용: 각 문제에서 작성한 함수들의 동작을 확인한다.
+// 입력: 없음
+// 출력: 없음 (필요 시 각 함수 내에서 결과 출력)
+// 오류: 없음
 int main(void)
 {
     return 0;
 }
 
-// 1번. selecttionSortFloat
+// 기능명: selecttionSortFloat. 실수 배열 선택 정렬
+// 내용: 실수 배열 R을 오름차순으로 선택 정렬한다.
+// 입력: float R[] (실수 배열), int n (배열 크기)
+// 출력: 정상 실행 시 0 반환
+// 오류: 배열 크기가 음수이거나 잘못된 포인터 입력 시 잘못된 동작 가능
 int selecttionSortFloat(float R[], int n)
 {
     int i = 0;
@@ -61,22 +69,28 @@ int selecttionSortFloat(float R[], int n)
     return 0;
 }
 
-// 2번. qsort로 float 정렬
-// qsortfloat는 qsort에서 사용할 비교 함수로, 두 float 값을 오름차순 정렬 기준으로 비교한다.
-// 매개변수 a, b는 void*로 들어오니까 float*로 형변환 후 값 비교에 사용한다.
-// 반환값은 음수(앞이 더 작을때), 0(같을때), 양수(앞이 더 클때)으로 qsort가 정렬 순서를 결정한다.
+// 기능명: qsortfloat. qsort용 실수 비교 함수
+// 내용: qsort에서 사용되는 비교 함수로, 두 실수의 크기를 비교한다.
+// 입력: const void* a, const void* b (비교할 두 실수의 주소)
+// 출력: 음수(앞이 작을 때), 0(같을 때), 양수(앞이 클 때)
+// 오류: 입력 포인터가 NULL이면 잘못된 동작 가능
 int qsortfloat(const void* a, const void* b)
 {
     float x = *(const float*)a;
     float y = *(const float*)b;
 
+    if (x < y) return -1;
+    if (x > y) return 1;
     return 0;
 }
 
-
-// 3번. selectionSortInt를 임의의 배열에 대해 정렬
-// selectionSortInt: 임의의 배열을 선택 정렬(오름차순)한다.
-// cmp가 있으면 그 비교 규칙을 쓰고, 없으면 int로 간주해 비교한다.
+// 기능명: selectionSortInt. 임의 배열 선택 정렬
+// 내용: qsort처럼 작동하는 일반화된 선택 정렬 함수. 
+//       cmp 비교 함수가 있으면 그 규칙을 사용해 정렬하고, 없으면 int 기준으로 정렬한다.
+// 입력: void* base (배열 시작 주소), int n (요소 개수), int sz (요소 크기),
+//       int (*cmp)(void*, void*) (비교 함수 포인터)
+// 출력: 정상 실행 시 0 반환
+// 오류: 배열 크기 또는 크기 인자 오류 시 비정상 동작 가능
 int selectionSortInt(void* base, int n, int sz, int (*cmp)(void*, void*))
 {
     char* a = (char*)base;
@@ -87,43 +101,30 @@ int selectionSortInt(void* base, int n, int sz, int (*cmp)(void*, void*))
 
         for (int j = i + 1; j < n; j++)
         {
-            void* pj = a + j * sz; // j번째 원소의 주소
-            void* pm = a + m * sz; // 현재 최소 원소의 주소
+            void* pj = a + j * sz; // j번째 원소 주소
+            void* pm = a + m * sz; // 현재 최소값 주소
 
-            int c = 0; // 비교 결과(음수/0/양수)를 담는 변수
+            int c = 0;
 
             if (cmp)
             {
-                c = cmp(pj, pm); // 사용자 비교 함수 결과 그대로 사용(음수/0/양수 계약 유지)
+                c = cmp(pj, pm);
             }
             else
             {
-                // 비교기가 없을 때는 int로 간주해 직접 비교한다.
-                // if-else로 -1/0/1을 명시적으로 만드는 이유는
-                // 음수, 0, 양수 형태로 결과를 통일하면 qsort처럼 될 것 같아서...
                 int x = *(int*)pj;
                 int y = *(int*)pm;
 
-                if (x < y)
-                {
-                    c = -1;
-                }
-                else if (x > y)
-                {
-                    c = 1;
-                }
-                else
-                {
-                    c = 0;
-                }
+                if (x < y) c = -1;
+                else if (x > y) c = 1;
+                else c = 0;
             }
 
-            if (c < 0) m = j; // pj가 더 작으면 최소 인덱스 갱신
+            if (c < 0) m = j;
         }
 
         if (m != i)
         {
-            // 바이트 단위 스왑하기. 임의 타입에도 동작한다
             for (int k = 0; k < sz; k++)
             {
                 char* p = a + i * sz + k;
@@ -135,11 +136,11 @@ int selectionSortInt(void* base, int n, int sz, int (*cmp)(void*, void*))
     return 0;
 }
 
-// 4번. qsort로 Contact 정렬
-// qsort에서 사용할 비교 함수로, 두 Contact 구조체의 name을 비교한다.  
-// void* 포인터를 Contact*로 형변환, 구조체 멤버에 접근한다.  
-// strcmp로 문자열 사전순을 판단하고, 반환값에 따라 오름차순 정렬된다.  
-
+// 기능명: contactUp. qsort용 구조체 비교 함수
+// 내용: Contact 구조체 배열을 이름(name) 기준으로 오름차순 정렬하기 위한 비교 함수.
+// 입력: const void* a, const void* b (비교할 두 구조체 주소)
+// 출력: strcmp 결과값 (음수/0/양수) - 문자열 사전순 기준
+// 오류: 입력 포인터가 NULL이면 잘못된 동작 가능
 int contactUp(const void* a, const void* b)
 {
     const Contact* x = (const Contact*)a;

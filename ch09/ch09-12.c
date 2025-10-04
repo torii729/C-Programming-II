@@ -1,8 +1,8 @@
 /*
     학번 : 202511204
     이름 : 강기민
-	프로그램 명 : ch09 PPT 예제 9-10 : count_space 함수의 정의
-	날짜 : 2025.09.29
+    프로그램 명 : ch09 PPT 예제 9-10 : count_space 함수의 정의
+    날짜 : 2025.09.29
 */
 
 /*
@@ -28,6 +28,13 @@
 
 int count_space(const char* s); // 공백 문자 개수를 세는 함수 원형 선언
 
+/*
+    기능명: main. 프로그램 시작점
+    내용: 문자열을 출력하고 count_space 함수를 호출하여 문자열 내 공백 문자의 개수를 출력한다.
+    입력: 없음
+    출력: 문자열과 공백 문자의 개수
+    오류: 없음
+*/
 int main(void)
 {
     char str[64] = "this program\ttests const pointer to string\n";
@@ -38,13 +45,20 @@ int main(void)
     return 0;
 }
 
+/*
+    기능명: count_space. 문자열 내 공백 문자 개수 세기
+    내용: const char*로 전달된 문자열을 읽으며, isspace로 공백 문자를 판별하여 개수를 센다.
+    입력: const char* s (문자열 주소)
+    출력: 없음 (반환값으로 공백 문자의 개수 반환)
+    오류: 없음
+*/
 int count_space(const char* s)
 {
     int count = 0; // 공백 개수 저장용 변수
 
     while (s[0] != '\0') { // 문자열 끝('\0')까지 반복
-        if (isspace(s[0])) // 현재 문자가 공백, 탭, 개행인지 검사
-            count++; // 공백 문자면 count 증가
+        if (isspace(s[0])) // 공백 문자인 경우
+            count++; // 개수 증가
         s++; // 다음 문자로 이동
     }
 

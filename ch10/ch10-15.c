@@ -1,8 +1,8 @@
 /*
-	학번 : 202511204
-	이름 : 강기민
-	프로그램 명 : ch10 PPT 예제 10-13 : LINE 구조체의 정의 및 사용
-	날짜 : 2025.10.01
+    학번 : 202511204
+    이름 : 강기민
+    프로그램 명 : ch10 PPT 예제 10-13 : LINE 구조체의 정의 및 사용
+    날짜 : 2025.10.01
 */
 
 /*
@@ -29,7 +29,13 @@ typedef struct line {
     POINT end; // 끝점
 } LINE;
 
-double get_length(const LINE* ln); // 선분 길이 계산 함수 원형
+double get_length(const LINE* ln);
+
+// 기능명: main. 구조체 포함 관계와 함수 활용 예제
+// 내용: LINE 구조체의 멤버를 출력하고, get_length 함수를 이용해 선분의 길이를 계산한다.
+// 입력: 없음
+// 출력: 선분의 시작점, 끝점, 길이 출력
+// 오류: 없음
 
 int main(void)
 {
@@ -41,6 +47,12 @@ int main(void)
 
     return 0;
 }
+
+// 기능명: get_length. 선분의 길이 계산 함수
+// 내용: 전달받은 LINE 구조체 포인터를 이용해 두 점 사이의 거리를 계산한다.
+// 입력: const LINE* ln (선분 정보를 가진 구조체 주소)
+// 출력: 계산된 선분의 길이 반환
+// 오류: 없음
 
 double get_length(const LINE* ln)
 {

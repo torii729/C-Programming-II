@@ -22,11 +22,16 @@
 #include <string.h>
 #include <ctype.h>
 
-int swap_string(char* lhs, char* rhs, int size);
-
 #define MAX 5
 #define BUF_SZ 30
 
+/*
+    기능명: main. 프로그램 시작점
+    내용: 2차원 문자 배열에 저장된 책 제목들을 선택 정렬 알고리즘으로 오름차순 정렬한다.
+    입력: 없음
+    출력: 정렬 전후의 책 제목 목록을 콘솔에 출력한다.
+    오류: 없음
+*/
 int main(void)
 {
     char books[MAX][BUF_SZ] = {
@@ -43,7 +48,8 @@ int main(void)
     for (i = 0; i < MAX; i++)
         puts(books[i]);
 
-    for (i = 0; i < MAX - 1; i++) // 선택 정렬 수행
+    // 선택 정렬 수행
+    for (i = 0; i < MAX - 1; i++)
     {
         index = i; // 현재 위치를 최소값 인덱스로 가정
         for (j = i + 1; j < MAX; j++)
@@ -64,6 +70,13 @@ int main(void)
     return 0;
 }
 
+/*
+    기능명: swap_string. 두 문자열의 내용을 교환
+    내용: strcpy를 이용해 문자열 lhs와 rhs의 내용을 서로 바꾼다.
+    입력: char* lhs (첫 번째 문자열), char* rhs (두 번째 문자열), int size (버퍼 크기)
+    출력: 없음 (문자열 내용이 직접 바뀜)
+    오류: 문자열 길이가 size를 초과할 경우 교환하지 않고 0 반환
+*/
 int swap_string(char* lhs, char* rhs, int size)
 {
     int lhs_len = strlen(lhs); // lhs 문자열 길이
@@ -76,5 +89,6 @@ int swap_string(char* lhs, char* rhs, int size)
     strcpy(temp, lhs); // lhs를 temp로 복사
     strcpy(lhs, rhs); // rhs를 lhs로 복사
     strcpy(rhs, temp); // temp를 rhs로 복사
+
     return 1; // 교환 성공
 }

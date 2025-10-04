@@ -21,10 +21,21 @@
 #include <stdio.h>
 #define ARR_SIZE 5
 
-int add(int a, int b);
+// 기능명: add. 두 정수의 합 계산
+// 내용: 두 정수를 전달받아 합을 계산한 후 반환한다.
+// 입력: int a, int b
+// 출력: 두 정수의 합을 반환한다.
+// 오류: 없음
+int add(int a, int b)
+{
+    return a + b;
+}
 
-int add(int a, int b) { return a + b; }
-
+// 기능명: main. 배열 원소의 다양한 활용
+// 내용: 배열의 원소를 직접 대입, 수식 계산, 함수 인자 전달, 입력 저장 등으로 사용한다.
+// 입력: 사용자로부터 정수 2개를 입력받는다.
+// 출력: 배열의 모든 원소를 콘솔에 출력한다.
+// 오류: 없음
 int main(void)
 {
     int arr[ARR_SIZE] = { 0 }; // 배열 전체를 0으로 초기화
