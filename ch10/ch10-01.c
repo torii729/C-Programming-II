@@ -5,34 +5,25 @@
 	날짜 : 2025.09.30
 */
 
-/*
-struct contact
-{
-	char name[20];
-	char phone[20];
-	int ringtone;
-};
-
-typedef struct contact Contact;
-*/
-
 #include <string.h>
 #include "contact.h"
 
-Contact kim = { 0 };
-
+// 기능명: main. 구조체 대입 실습
+// 내용: 구조체 변수의 복사와 문자열 복사를 통해 데이터를 변경하는 과정을 실습한다.
+// 입력: 없음
+// 출력: 없음
+// 오류: 없음
 int main()
 {
 	Contact lee = { "안녕", "01012341234", 1 };
 	Contact lee2 = { 0 };
 
-	lee2 = lee;
+	lee2 = lee; // 구조체 복사
 
 	// lee2 = { "안녕2", "01023452345", 2 }; 에러 발생
-	strcpy(lee2.name, "안녕2");
-	strcpy(lee2.phone, "01023452345");
-	lee2.ringtone = 2;
+	strcpy(lee2.name, "안녕2"); // 이름 변경
+	strcpy(lee2.phone, "01023452345"); // 전화번호 변경
+	lee2.ringtone = 2; // 벨소리 변경
 
 	return 0;
 }
-

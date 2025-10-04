@@ -1,43 +1,37 @@
 /*
 	학번 : 202511204
 	이름 : 강기민
-	프로그램 명 : 12. 기차표 예매 프로그램을 작성하려고 한다. 간단한 구현을 위해 좌석은 모두 10개라고 하자.
-		예매할 좌석수를 입력받아 빈 자리를 할당한다. 예매할 때마다 각 좌석의 상태를 출력한다.
+	프로그램 명 : 12. 기차표 예매 프로그램
+		좌석은 10개이며, 예매할 좌석 수를 입력받아 빈 좌석부터 순서대로 예매한다.
 		O이면 예매 가능, X면 예매 불가를 의미한다. 더 이상 예매할 수 없으면 프로그램을 종료한다.
 	날짜 : 2025.09.16
 */
 
-/*
-	전체적인 흐름 이해
-	1. 현재 좌석 상태 출력
-	2. 남은 좌석 수 확인
-	3. o인 좌석부터 가능하면 예약
-	3-1. 남은 좌석 수보다 많은 좌석을 예약하려 할땐 예매가 불가능하므로 종료
-	4. 좌석 상태 출력
-	5. 1~4의 반복
-*/
-
-/*
-	예매가 불가능할 때까지 계속 좌석 예매를 반복해야 하므로 while문이나 for문
-	좌석이 모두 예약이 되면(모두 X인 경우) 종료 break문
-*/
-
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
+#include <stdlib.h>
 
 void sit();
 void sitPrint(int sitTrain[], int size);
 void sitInput(int sitTrain[], int size);
 void sitCheck(int sitTrain[], int size);
 
-// 함수를 호출하고 프로그램을 정상적으로 종료하는 함수
+// 기능명: main. 프로그램 시작점
+// 내용: sit 함수를 호출하여 좌석 예매 프로그램을 실행한다.
+// 입력: 없음
+// 출력: 좌석 상태 및 예매 결과를 콘솔에 출력한다.
+// 오류: 없음
 int main()
 {
 	sit();
 	return 0;
 }
 
-// 변수의 선언 및 초기화, 함수를 호출함으로써 예약 실시
+// 기능명: sit. 좌석 배열 초기화 및 예매 시작
+// 내용: 좌석 배열을 초기화한 뒤 sitInput 함수를 호출하여 예매 과정을 시작한다.
+// 입력: 없음
+// 출력: 좌석 상태 및 예매 결과를 콘솔에 출력한다.
+// 오류: 없음
 void sit()
 {
 	int sitTrain[10] = { 0 };
@@ -46,110 +40,101 @@ void sit()
 	sitInput(sitTrain, size);
 }
 
-// 현재 좌석을 출력하는 함수
+// 기능명: sitPrint. 현재 좌석 상태 출력
+// 내용: 배열을 순회하며 0은 'O', 1은 'X'로 출력하여 현재 좌석 상태를 표시한다.
+// 입력: int sitTrain[] (좌석 배열), int size (좌석 수)
+// 출력: 좌석 상태를 콘솔에 출력한다.
+// 오류: 없음
 void sitPrint(int sitTrain[], int size)
 {
 	printf("현재 좌석 : [ ");
 
-	// 좌석이 현재 0이면 'O'을 출력하고, 현재 1이면 'X'를 출력한다.
 	for (int i = 0; i < size; i++)
 	{
 		if (sitTrain[i] == 0)
-		{
 			printf("O ");
-		}
 		else
-		{
 			printf("X ");
-		}
 	}
 	printf("]\n");
 }
 
-// 좌석 예약을 입력받는 함수
+// 기능명: sitInput. 좌석 예매 처리
+// 내용: 사용자로부터 예매할 좌석 수를 입력받고, 가능한 좌석을 순서대로 예매한다.
+//       남은 좌석보다 많은 좌석을 예매하려 하면 경고 후 프로그램을 종료한다.
+// 입력: int sitTrain[] (좌석 배열), int size (좌석 수)
+// 출력: 예매된 좌석 번호와 상태를 콘솔에 출력한다.
+// 오류: 남은 좌석보다 많은 좌석을 요청 시 예매 불가 메시지 출력 후 종료
 void sitInput(int sitTrain[], int size)
 {
 	int num = 0;
 
 	while (1)
 	{
-		int sitReserved[10] = { 0 }; // 계산하기 편리하게 예약된 좌석을 세는 배열을 따로 선언.
-		int reserved = 0; // 이미 예약된 좌석 수
-		int remain = 0; // 남은 좌석 수
+		int sitReserved[10] = { 0 };
+		int reserved = 0;
+		int remain = 0;
 
-		// 함수 호출을 통해 현재 좌석을 출력한다.
 		sitPrint(sitTrain, size);
 
 		printf("예매할 좌석수? ");
 		scanf("%d", &num);
 
-
-		// 남은 좌석 수를 계산한다.
+		// 남은 좌석 수 계산
 		for (int i = 0; i < size; i++)
 		{
 			if (sitTrain[i] == 0)
-			{
 				remain++;
-			}
 		}
 
-		/*
-			예약할 좌석 수가 남은 좌석 수보다 많으면,
-			예약 좌석이 부족하다는 문장과 함께 프로그램 종료.
-		*/
+		// 예매 불가 조건
 		if (remain < num)
 		{
 			printf("예약 좌석이 부족합니다.\n");
 			break;
 		}
 
-		// 예약 가능한 좌석에 순서대로 예약.
+		// 예약 가능한 좌석부터 순서대로 예매
 		for (int i = 0; reserved < num && i < size; i++)
 		{
 			if (sitTrain[i] == 0)
 			{
-				sitTrain[i] = 1; // 좌석은 0 -> 1로 변경
-				sitReserved[reserved] = i + 1; /*
-													사용자에겐 좌석 번호를 1부터 보여주기 위함.
-													예를 들어 예약하고 싶은 좌석 수가 5라면 이 배열은
-													sitReserved[10] = { 1, 2, 3, 4, 5, 0, 0, 0, 0, 0 }이 된다.
-												*/
-				reserved++; // 이미 예약된 좌석 수를 하나씩 증가
+				sitTrain[i] = 1;
+				sitReserved[reserved] = i + 1; // 실제 좌석 번호는 1부터 시작
+				reserved++;
 			}
 		}
 
-		// 예약된 좌석 번호를 출력.
+		// 예매 결과 출력
 		for (int j = 0; j < reserved; j++)
-		{
 			printf("%d ", sitReserved[j]);
-		}
-		printf("번 좌석을 예매했습니다.");
+		printf("번 좌석을 예매했습니다.\n");
+
+		sitCheck(sitTrain, size);
 	}
-
-	sitCheck(sitTrain, size);
-
 }
 
-// 남은 좌석을 검사하는 함수
+// 기능명: sitCheck. 모든 좌석 예매 완료 여부 확인
+// 내용: 좌석 배열을 확인하여 남은 좌석이 없으면 예매 종료 메시지를 출력한다.
+// 입력: int sitTrain[] (좌석 배열), int size (좌석 수)
+// 출력: 모든 좌석이 예매 완료되었을 경우 메시지를 출력한다.
+// 오류: 없음
 void sitCheck(int sitTrain[], int size)
 {
-	int all = 1; // 좌석이 이미 꽉 찼다는(1) 가정을 둔다.
+	int all = 1;
 
 	for (int i = 0; i < size; i++)
 	{
 		if (sitTrain[i] == 0)
 		{
-			all = 0; // 좌석 예약이 모두 비었으므로 0으로 바꾸고 종료한다.
+			all = 0;
 			break;
 		}
+	}
 
-		if (all == 1)
-		{
-			printf("모든 좌석 예매 완료."); /*
-												좌석이 모두 1일때 이 if문이 실행된다.
-												이 문장을 출력하고 프로그램을 종료.
-												*/
-			break;
-		}
+	if (all == 1)
+	{
+		printf("모든 좌석 예매 완료.\n");
+		exit(0); // 즉시 종료
 	}
 }

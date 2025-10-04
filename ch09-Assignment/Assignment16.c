@@ -16,14 +16,22 @@
 int login(const char* id, const char* pw);
 void process_login(void);
 
-// 메인 함수
+// 기능명: main. 로그인 프로그램 실행
+// 내용: process_login 함수를 호출하여 로그인 과정을 수행한다.
+// 입력: 없음
+// 출력: 로그인 성공 또는 실패 메시지 출력
+// 오류: 없음
 int main(void)
 {
     process_login(); // 로그인 과정 실행
     return 0;
 }
 
-// 로그인 검증 
+// 기능명: login. 로그인 검증
+// 내용: 입력받은 아이디와 비밀번호가 등록된 데이터와 일치하는지 확인한다.
+// 입력: const char* id (아이디), const char* pw (비밀번호)
+// 출력: 1(성공), -1(비밀번호 오류), 0(아이디 없음)
+// 오류: 없음
 int login(const char* id, const char* pw)
 {
     char ids[5][20] = { "seoyon", "torii", "gimin", "kook", "jimin" };
@@ -36,7 +44,6 @@ int login(const char* id, const char* pw)
             if (strcmp(pw, pws[i]) == 0) // 비번도 맞음
             {
                 return 1; // 성공
-
             }
             else
             {
@@ -47,7 +54,11 @@ int login(const char* id, const char* pw)
     return 0; // 아이디 없음
 }
 
-// 로그인 과정 처리
+// 기능명: process_login. 로그인 과정 처리
+// 내용: 사용자로부터 아이디와 비밀번호를 입력받아 login 함수로 검증하고 결과를 출력한다.
+// 입력: 없음
+// 출력: 로그인 성공 또는 실패 메시지 출력
+// 오류: 없음
 void process_login(void)
 {
     char id[20] = { 0 };

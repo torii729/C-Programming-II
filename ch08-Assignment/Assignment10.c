@@ -7,19 +7,30 @@
 
 #include <stdio.h>
 
-// 10번 실행
 void test(void);
 void add_matrix(int x[][3], int y[][3], int out[][3]);
 void print_mat3(int m[][3], const char* title);
 
+/*
+    기능명: main. 프로그램 시작점
+    내용: test 함수를 호출하여 3x3 행렬의 합을 계산하고 출력한다.
+    입력: 없음
+    출력: 각 행렬 및 합 행렬을 콘솔에 출력한다.
+    오류: 없음
+*/
 int main(void)
 {
     test();
     return 0;
 }
 
-// out = x + y 계산함
-// 왜 이중 for일까. 줄(행)을 돌고, 그 안에서 칸(열)을 반복한다. 3x3이라 i 0~2, j 0~2만큼..
+/*
+    기능명: add_matrix. 두 3x3 행렬의 합 계산
+    내용: 3x3 크기의 행렬 x와 y를 더하여 out에 저장한다.
+    입력: int x[][3], int y[][3], int out[][3]
+    출력: 없음 (결과는 out 배열에 저장됨)
+    오류: 없음
+*/
 void add_matrix(int x[][3], int y[][3], int out[][3])
 {
     int i = 0;
@@ -34,7 +45,13 @@ void add_matrix(int x[][3], int y[][3], int out[][3])
     }
 }
 
-// 보기 좋게 3x3 찍는 함수
+/*
+    기능명: print_mat3. 3x3 행렬 출력
+    내용: 3x3 행렬을 보기 좋은 형태로 콘솔에 출력한다.
+    입력: int m[][3] (행렬), const char* title (행렬 이름)
+    출력: 콘솔에 행렬 내용 출력
+    오류: 없음
+*/
 void print_mat3(int m[][3], const char* title)
 {
     int i = 0;
@@ -51,6 +68,13 @@ void print_mat3(int m[][3], const char* title)
     }
 }
 
+/*
+    기능명: test. add_matrix 함수 테스트
+    내용: 3x3 행렬 두 개를 초기화하고, add_matrix 함수를 호출해 합을 계산한 뒤 결과를 출력한다.
+    입력: 없음
+    출력: 행렬 x, y, 그리고 합 행렬 z를 콘솔에 출력한다.
+    오류: 없음
+*/
 void test(void)
 {
     int x[3][3] = {

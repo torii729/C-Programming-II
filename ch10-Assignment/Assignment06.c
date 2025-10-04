@@ -29,6 +29,7 @@ int same(DATE a, DATE b);
 // 입력: 없음
 // 출력: 없음
 // 오류: 없음
+
 int main()
 {
     run_date(); // 공휴일 판별 실행
@@ -40,6 +41,7 @@ int main()
 // 입력: DATE a, DATE b
 // 출력: 동일하면 1, 아니면 0
 // 오류: 없음
+
 int same(DATE a, DATE b)
 {
     return (a.y == b.y && a.m == b.m && a.d == b.d);
@@ -50,6 +52,7 @@ int same(DATE a, DATE b)
 // 입력: 표준 입력(년, 월, 일). 0 0 0 입력 시 종료.
 // 출력: 입력한 날짜가 공휴일인지 여부
 // 오류: 날짜 형식이 잘못 입력되면 동작이 보장되지 않음
+
 void run_date()
 {
     DATE holiday[SIZE] = {

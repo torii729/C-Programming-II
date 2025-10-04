@@ -31,6 +31,7 @@ void run_song();
 // 입력: 없음
 // 출력: 없음
 // 오류: 없음
+
 int main()
 {
     run_song();
@@ -42,6 +43,7 @@ int main()
 // 입력: 표준 입력(검색 키워드). 종료 조건은 "." 입력
 // 출력: 검색된 노래 정보(title, artist, genre, time)
 // 오류: 없음
+
 void run_song()
 {
     SONG list[4] = {

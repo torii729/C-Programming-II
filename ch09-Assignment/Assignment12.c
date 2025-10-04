@@ -15,18 +15,26 @@ void rotate(char* str, int k);
 void input_string(char* str);
 void process_rotation(char* str);
 
-// 메인 함수
+// 기능명: main. 문자열 회전 프로그램 실행
+// 내용: 문자열을 입력받아 회전 기능을 수행하는 process_rotation 함수를 호출한다.
+// 입력: 없음
+// 출력: 회전된 문자열을 콘솔에 출력한다.
+// 오류: 없음
 int main(void)
 {
     char str[100];
 
     input_string(str); // 문자열 입력 받음
-    process_rotation(str);  // 회전 처리 시작
+    process_rotation(str); // 회전 처리 시작
 
     return 0;
 }
 
-// 문자열 입력 받기
+// 기능명: input_string. 문자열 입력
+// 내용: 사용자로부터 문자열을 입력받고 개행 문자를 제거한다.
+// 입력: char* str (문자열 배열)
+// 출력: 없음
+// 오류: 없음
 void input_string(char* str)
 {
     printf("문자열? ");
@@ -34,7 +42,11 @@ void input_string(char* str)
     str[strcspn(str, "\n")] = '\0'; // 엔터 제거
 }
 
-// 회전 실행 및 출력
+// 기능명: process_rotation. 회전 실행 및 출력
+// 내용: 이동할 글자 수를 입력받아 rotate 함수를 호출하고 결과를 출력한다.
+// 입력: char* str (입력 문자열)
+// 출력: 회전된 문자열을 콘솔에 출력한다.
+// 오류: 없음
 void process_rotation(char* str)
 {
     int k = 0;
@@ -53,7 +65,11 @@ void process_rotation(char* str)
     }
 }
 
-// 문자열 회전
+// 기능명: rotate. 문자열 회전
+// 내용: 입력받은 k값을 이용해 문자열을 왼쪽 또는 오른쪽으로 회전시킨다.
+// 입력: char* str (문자열), int k (이동할 글자 수)
+// 출력: 없음
+// 오류: 없음
 void rotate(char* str, int k)
 {
     int len = strlen(str);
@@ -79,18 +95,21 @@ void rotate(char* str, int k)
 
     if (k < 0)
     {
-        k = k + len;  // 음수면 양수로 바꿔줌
+        k = k + len; // 음수면 양수로 바꿔줌
     }
 
     // 문자열의 처음부터 끝까지 전부 뒤집으라는 의미로 매개변수를 보낸다
     // len 그대로 넣으면 널문자까지 건드리므로 -1을 한다
-    reverse(str, 0, len - 1); 
+    reverse(str, 0, len - 1);
     reverse(str, 0, k - 1);
     reverse(str, k, len - 1);
 }
 
-
-// 문자열 뒤집기
+// 기능명: reverse. 문자열 뒤집기
+// 내용: 지정된 구간의 문자를 서로 교환하여 역순으로 만든다.
+// 입력: char* str (문자열), int start (시작 인덱스), int end (끝 인덱스)
+// 출력: 없음
+// 오류: 없음
 void reverse(char* str, int start, int end)
 {
     while (start < end)

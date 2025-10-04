@@ -1,8 +1,8 @@
 /*
-	학번 : 202511204
-	이름 : 강기민
-	프로그램 명 : ch09 PPT 예제 공부 : 토큰 분리 예제(strtok_s 함수)
-	날짜 : 2025.09.29
+    학번 : 202511204
+    이름 : 강기민
+    프로그램 명 : ch09 PPT 예제 공부 : 토큰 분리 예제(strtok_s 함수)
+    날짜 : 2025.09.29
 */
 
 /*
@@ -25,20 +25,27 @@
 #include <stdio.h>
 #include <string.h>
 
+/*
+    기능명: main. 프로그램 시작점
+    내용: strtok_s 함수를 이용하여 문자열을 지정된 구분자('|', ',') 기준으로 분리하고 각 토큰을 출력한다.
+    입력: 없음
+    출력: 원본 문자열과 분리된 토큰들을 콘솔에 출력한다.
+    오류: 없음
+*/
 int main()
 {
     char str[] = "풍길동, 29, 청주시 서원구 | date"; // 분리할 원본 문자열
     char* token; // 잘라낸 토큰을 가리킬 포인터
     char* context = NULL; // strtok_s의 내부 상태를 저장할 포인터
 
-    printf("원본 문자열: %s\n", str); // 원본 문자열 출력
+    printf("원본 문자열: %s\n", str);
     printf("토큰들:\n");
 
     token = strtok_s(str, "|,", &context); // 첫 번째 토큰 추출
 
     while (token != NULL)
     {
-        printf("    토큰: %s\n", token); // 잘려 나온 토큰 출력
+        printf("    토큰: %s\n", token); // 잘라낸 토큰 출력
         token = strtok_s(NULL, "|,", &context); // 다음 토큰 추출
     }
 

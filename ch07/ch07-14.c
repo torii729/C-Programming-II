@@ -23,6 +23,12 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
+// 기능명: main. 배열 탐색 및 성공 여부 판별
+// 내용: 정수 배열에서 입력받은 값을 선형 탐색으로 찾고,
+//       탐색 성공 시 인덱스를 출력하며, 실패 시 "탐색 실패"를 출력한다.
+// 입력: 사용자로부터 찾을 정수 key를 입력받는다.
+// 출력: 탐색 결과(성공 또는 실패)를 콘솔에 출력한다.
+// 오류: 없음
 int main(void)
 {
     int data[] = { 78, 34, 52, 15, 63, 15, 25 }; // 탐색 대상 배열
@@ -43,8 +49,8 @@ int main(void)
     found = 0; // 초기값: 실패로 가정
     for (i = 0; i < size; i++) {
         if (data[i] == key) { // 원소가 key와 같으면
-            found = 1; // 성공 표시를 위해 found에 1을 대입한다.
-            break; // 더 이상 탐색하지 않는다는 의미로 break
+            found = 1; // 성공 표시
+            break; // 탐색 종료
         }
     }
 
@@ -55,5 +61,3 @@ int main(void)
 
     return 0;
 }
-
-

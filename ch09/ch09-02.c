@@ -26,6 +26,13 @@
 #include <string.h>
 #include <ctype.h>
 
+/*
+    기능명: ltrim. 문자열의 왼쪽 공백 제거
+    내용: 문자열의 시작부터 공백 문자가 아닌 첫 문자가 나올 때까지 포인터를 이동시켜 반환한다.
+    입력: char* str (입력 문자열)
+    출력: 공백이 제거된 문자열의 시작 주소
+    오류: NULL 입력 시 NULL 반환
+*/
 char* ltrim(char* str)
 {
     if (str == NULL) return NULL;
@@ -36,6 +43,13 @@ char* ltrim(char* str)
     return str;
 }
 
+/*
+    기능명: rtrim. 문자열의 오른쪽 공백 제거
+    내용: 문자열의 끝에서부터 공백 문자를 찾아 '\0'으로 대체해 문자열을 잘라낸다.
+    입력: char* str (입력 문자열)
+    출력: 오른쪽 공백이 제거된 원본 문자열 주소
+    오류: NULL 또는 빈 문자열 입력 시 원본 그대로 반환
+*/
 char* rtrim(char* str)
 {
     if (str == NULL) return NULL;
@@ -52,14 +66,28 @@ char* rtrim(char* str)
     return str;
 }
 
+/*
+    기능명: trim. 문자열 양쪽 공백 제거
+    내용: rtrim을 먼저 호출해 오른쪽 공백을 제거한 뒤, ltrim을 호출하여 왼쪽 공백을 제거한다.
+    입력: char* str (입력 문자열)
+    출력: 양쪽 공백이 제거된 문자열의 시작 주소
+    오류: NULL 입력 시 NULL 반환
+*/
 char* trim(char* str)
 {
     if (str == NULL) return NULL;
 
-    rtrim(str); // 먼저 오른쪽 공백 제거
-    return ltrim(str); // 이어서 왼쪽 공백 제거
+    rtrim(str); // 오른쪽 공백 제거
+    return ltrim(str); // 왼쪽 공백 제거
 }
 
+/*
+    기능명: main. 프로그램 시작점
+    내용: 문자열의 앞, 뒤, 양쪽 공백 제거 함수를 테스트한다.
+    입력: 없음
+    출력: 공백 제거 결과를 콘솔에 출력한다.
+    오류: 없음
+*/
 int main()
 {
     char temp1[] = "   hello world   ";

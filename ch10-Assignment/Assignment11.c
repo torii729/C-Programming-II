@@ -37,6 +37,7 @@ void print_all(PRODUCT list[], int n);
 // 입력: 없음
 // 출력: 없음
 // 오류: 없음
+
 int main()
 {
     run_order();
@@ -48,6 +49,7 @@ int main()
 // 입력: PRODUCT list[], int n, char* key
 // 출력: 찾은 인덱스(정수). 없으면 -1 반환
 // 오류: key가 NULL이면 비교 불가
+
 int find(PRODUCT list[], int n, char* key)
 {
     for (int i = 0; i < n; i++)
@@ -65,6 +67,7 @@ int find(PRODUCT list[], int n, char* key)
 // 입력: PRODUCT* p (주문할 상품), int q (주문 수량)
 // 출력: 없음 (결제 금액과 변경된 재고 출력)
 // 오류: 재고 부족 시 주문 불가
+
 void order(PRODUCT* p, int q)
 {
     if (p->stock < q)
@@ -82,6 +85,7 @@ void order(PRODUCT* p, int q)
 // 입력: PRODUCT list[], int n
 // 출력: 없음 (상품 정보를 콘솔에 출력)
 // 오류: 없음
+
 void print_all(PRODUCT list[], int n)
 {
     for (int i = 0; i < n; i++)
@@ -95,6 +99,7 @@ void print_all(PRODUCT list[], int n)
 // 입력: 표준 입력(제품명, 주문 수량). 종료 조건은 "." 입력
 // 출력: 주문 처리 결과 및 모든 상품 정보 출력
 // 오류: 잘못된 입력 시 동작이 보장되지 않음
+
 void run_order()
 {
     PRODUCT list[N] = {

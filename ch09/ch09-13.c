@@ -1,7 +1,7 @@
 /*
     학번 : 202511204
     이름 : 강기민
-	프로그램 명 : ch09 PPT 예제 9-11 : swap_string 함수의 정의 및 호출
+    프로그램 명 : ch09 PPT 예제 9-11 : swap_string 함수의 정의 및 호출
     날짜 : 2025.09.29
 */
 
@@ -24,33 +24,47 @@
 
 int swap_string(char* lhs, char* rhs, int size); // 문자열 교환 함수 원형 선언
 
+/*
+    기능명: main. 프로그램 시작점
+    내용: 사용자로부터 문자열 2개를 입력받고 swap_string 함수를 호출하여 서로 교환한다.
+    입력: 없음 (사용자 입력)
+    출력: 교환 전후 문자열
+    오류: 없음
+*/
 int main(void)
 {
-    char str1[SIZE] = ""; // 첫 번째 문자열 저장할 배열
-    char str2[SIZE] = ""; // 두 번째 문자열 저장할 배열
+    char str1[SIZE] = ""; // 첫 번째 문자열 저장
+    char str2[SIZE] = ""; // 두 번째 문자열 저장
 
-    printf("문자열 2개? "); // 문자열 2개 입력 안내
-    scanf("%s %s", str1, str2); // 문자열 2개 입력받음
+    printf("문자열 2개? ");
+    scanf("%s %s", str1, str2); // 문자열 입력
 
-    printf("str1=%s, str2=%s\n", str1, str2); // 입력된 문자열 출력
-    swap_string(str1, str2, SIZE); // 두 문자열 교환
-    printf("str1=%s, str2=%s\n", str1, str2); // 교환된 결과 출력
+    printf("str1=%s, str2=%s\n", str1, str2);
+    swap_string(str1, str2, SIZE); // 문자열 교환
+    printf("str1=%s, str2=%s\n", str1, str2);
 
     return 0;
 }
 
+/*
+    기능명: swap_string. 문자열 교환
+    내용: 두 문자열의 내용을 서로 교환한다. 문자열 길이가 size를 초과하면 교환하지 않는다.
+    입력: char* lhs (첫 번째 문자열 주소), char* rhs (두 번째 문자열 주소), int size (버퍼 크기)
+    출력: 없음 (반환값으로 성공/실패 상태 반환)
+    오류: 문자열 크기가 size를 초과할 경우 교환 실패 (0 반환)
+*/
 int swap_string(char* lhs, char* rhs, int size)
 {
-    int lhs_len = strlen(lhs); // lhs 문자열 길이
-    int rhs_len = strlen(rhs); // rhs 문자열 길이
-    char temp[SIZE] = ""; // 임시 저장 배열
+    int lhs_len = strlen(lhs); // lhs 길이
+    int rhs_len = strlen(rhs); // rhs 길이
+    char temp[SIZE] = ""; // 임시 저장 공간
 
-    if (lhs_len + 1 > size || rhs_len + 1 > size) // 문자열이 size보다 크면 교환 불가
-        return 0; // swap 실패
+    if (lhs_len + 1 > size || rhs_len + 1 > size) // 문자열이 크면
+        return 0; // 실패
 
-    strcpy(temp, lhs); // lhs를 temp로 복사
-    strcpy(lhs, rhs); // rhs를 lhs로 복사
-    strcpy(rhs, temp); // temp를 rhs로 복사
+    strcpy(temp, lhs); // lhs → temp
+    strcpy(lhs, rhs); // rhs → lhs
+    strcpy(rhs, temp); // temp → rhs
 
-    return 1; // swap 성공
+    return 1; // 성공
 }
